@@ -1,0 +1,64 @@
+	<nav class="navigator-notice clearfix">
+		<div class="copyclip noticdiv noticwei clearfix" data-clipboard-text>
+			<img src="/public/mobile/images/wechat.png" />
+			<div class="wetxt">
+				<p>提前看精准资料</p>
+				<p class="wenum">VX:<span id="weicode"></span><span class="copy_c copy_wei">点击加微信</span></p>
+			</div>
+		</div>
+		<div class="copyclip noticdiv1 noticqq clearfix" data-clipboard-text>
+			<img src="/public/mobile/images/qimg.png" />
+			<div class="qqtxt">
+				<p>提前看精准资料</p>
+				<p class="qqnum">QQ:<span id="qqcode"></span><span class="copy_c copy_qq">点击加QQ</span></p>
+			</div>
+		</div>
+	</nav>
+	<!--复制成功弹框-->
+	<div class="copydiv">
+		<div class="copy_txt">
+			<p class="copy_suc">复制成功</p>
+			<p class="copy_q">是否跳转到<span>QQ</span>？</p>
+			<div class="yes_no clearfix">
+				<span class="no">否</span>
+				<span class="yes"><a href="" target="_blank">是</a></span>
+			</div>
+		</div>
+	</div>
+	<footer class="footer">		
+		<ul class="clearfix">
+			<li>
+			<a href="{:cmf_url('/mobile/index')}">
+				<if condition="$controller=='index' && $action=='index'">
+				<img src="/public/mobile/images/indexl.png" class="navindex">
+				<p class="txt">主页</p>
+				<else />
+				<img src="/public/mobile/images/indexc.png" class="navindex">
+				<p>主页</p>
+				</if>				
+			</a>
+			</li>
+			<li>
+			<a href="{:cmf_url('/mobile/plan')}">
+				<if condition="$controller=='plan' && $action=='index'">
+				<img src="/public/mobile/images/planl.png" class="navplan">
+				<p class="txt">精彩计划</p>
+				<else />
+				<img src="/public/mobile/images/planc.png" class="navplan">
+				<p>精彩计划</p>
+				</if>
+			</a>
+			</li>
+			<li>
+			<a href="{:cmf_url('/mobile/down')}">
+				<if condition="$controller=='down' && $action=='index'">
+				<img src="/public/mobile/images/downloadl.png" class="navapp">
+				<p class="txt">APP下载</p>
+				<else />
+				<img src="/public/mobile/images/downloadc.png" class="navapp">
+				<p>APP下载</p>
+				</if>
+			</a>
+			</li>
+		</ul>
+	</footer>

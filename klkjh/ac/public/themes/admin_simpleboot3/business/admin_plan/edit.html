@@ -1,0 +1,65 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('AdminPlan/index')}">计划管理</a></li>
+        <li class="active"><a>编辑计划</a></li>
+    </ul>
+    <form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('AdminPlan/editPost')}">
+        <div class="form-group">
+            <label for="input-title" class="col-sm-2 control-label">计划期号</label>
+            <div class="col-md-6 col-sm-10">
+                {$plan.plan_number}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">玩法名称</label>
+            <div class="col-md-6 col-sm-10">
+                {$plan.play_name}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-data" class="col-sm-2 control-label">推荐号码</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" id="input-data" name="data" value="{$plan.data}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-number" class="col-sm-2 control-label">中奖期号</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" id="input-number" name="number" value="{$plan.number}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-kj-data" class="col-sm-2 control-label">开奖号码</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" id="input-kj-data" name="kj_data" value="{$plan.kj_data}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-flag" class="col-sm-2 control-label">中奖状态</label>
+            <div class="col-md-6 col-sm-10">
+                <select name="flag" id="input-flag" class="form-control">
+                    <option value="0">未开奖</option>
+                    <option value="1">中奖</option>
+                    <option value="2">未中奖</option>                                
+                </select>               
+            </div>
+        </div>        
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="hidden" name="id" value="{$plan.id}">
+                <input type="hidden" name="type" value="{$type}">
+                <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('SAVE')}</button>
+                <a class="btn btn-default" href="{:url('AdminPlan/index')}">{:lang('BACK')}</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+<script>
+    $('#input-flag').val("{$plan.flag}");
+</script>
+</body>
+</html>

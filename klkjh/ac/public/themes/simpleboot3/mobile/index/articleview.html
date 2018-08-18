@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>{$article.post_title}-{$site_info.site_name|default=''}</title>
+<meta name="keywords" content="{$article.post_keywords},{$site_info.site_seo_keywords|default=''}"/>
+<meta name="description" content="{$site_info.site_seo_description|default=''}">
+<include file="mobile/public/@head"/>
+</head>
+<body>
+<div id="page-plan" class="wrap">
+	<header class="header">
+		<a class="btn-back" href="{:cmf_url('/mobile/index/article',array('category_id'=>$article.category_id))}"></a>
+		<h1 class="title">{$article.post_title}</h1>
+	</header>
+	<!-- end.header -->
+	<div class="body">
+		<div class="content detail {$type.name}">
+			<include file="mobile/public/@top"/>
+			<div class="content article lhc-article">
+				<div class="article-body">
+					<h1>{$article.post_number}期：{$article.post_title}</h1>
+					{$article.post_content}
+				</div>
+				<!-- end.art list -->
+			</div>
+			<!-- end.art list -->
+		</div>
+	</div>
+	<include file="mobile/public/@footer"/>	
+</div>
+<script type="text/javascript">	
+var isLoadTimer=true;
+</script>
+<script src="/public/mobile/js/require.js" data-main="/public/mobile/js/system"></script>
+<script src="/public/mobile/js/require.config.js"></script>
+</body>
+</html>

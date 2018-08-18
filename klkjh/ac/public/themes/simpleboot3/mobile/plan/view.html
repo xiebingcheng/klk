@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>{$type.title}-{$played.name}-{$site_info.site_name|default=''}</title>
+<meta name="keywords" content="{$type.title}{$played.name},{$site_info.site_seo_keywords|default=''}"/>
+<meta name="description" content="{$site_info.site_seo_description|default=''}">
+<include file="mobile/public/@head"/>
+</head>
+<body>
+<div id="page-index" class="wrap">
+	<header class="header">
+		<a class="btn-back" href="{:cmf_url('/mobile/plan')}"></a>
+		<h1 class="title">{$type.title}-{$played.name}</h1>
+	</header>
+	<div class="body">
+		<div class="content plan-view {$type.name}">		
+			<include file="mobile/public/@top"/>			
+			<div class="plan-list">
+				<table id="plan-list" data-page="2">
+					<tr>
+					    <th width="30%">期数</th>
+					    <th width="25%">玩法</th>
+					    <th width="30%">号码</th>					   
+					    <th width="60">结果</th>
+				  	</tr>
+					<if condition="!empty($plans)">
+				  	<foreach name="$plans" item="vo2">
+				  	<tr>
+					    <td>{$vo2.plan_number}期</td>
+					    <td>{$played.play_name}</td>
+					    <td>{$vo2.plan_data}</td>					    
+					    <td><if condition="$vo2['flag']==1"><font color="#9cd355">中</font><elseif condition="$vo2['flag']==2" /><font color="#a2714d">挂</font><else />进行中</if></td>
+				  	</tr>
+				  	</foreach>
+				  	</if>
+				</table>
+				<div class="tips"></div>			
+			</div>
+		</div>	
+	</div>
+	<include file="mobile/public/@footer"/>	
+	<!-- end.footer -->
+</div>
+<script src="/public/mobile/js/function.js"></script>
+<script type="text/javascript">	
+var isLoadTimer=true;
+var isLoadPlanList=true;
+var id = '{$type.id|default=0}';
+var played_id={$played_id|default=0};
+var total = {$total|default=0};
+var pageSize = {$psize|default=10};
+var play_name='{$played.play_name}';
+
+function getPlanData(){
+	var pages = Math.ceil(total / pageSize);
+    if (pages > 1) {
+    	var flag =  false;
+    	var status = true;
+        $(window).bind("scroll",function(){
+            if ($(document).scrollTop() + $(window).height() >= $(document).height() && flag == false) {
+            	var _page = $('#plan-list').data('page');
+            	if (_page > pages) {
+            		$('.tips').html('');                    	
+                    flag = true;
+                    return;
+                }
+            	$('.tips').html('正在加载中...'); 
+                if(!status)return;
+                status=false;
+                try {
+                	$.ajax({
+           				url: '/public/index.php/mobile/ajax/getPlans',
+           		        type: 'GET',
+           		        dataType: 'json',
+           		        data:{"page":_page,"id":id,"played_id":played_id},
+           		        timeout: 30000,
+           		        success: function(data){
+           		        	status=true;
+           		        	result=data.result;            	
+           		        	if (result.itemCount > 0) {
+           		        		$('#plan-list').data('page', parseInt(_page) + 1);
+           		        		var html = "";
+           		        		for (var j = 0; j < result.itemCount; j++) {
+           		                	var plan_number = result.items[j].plan_number;           		                
+           		                	var plan_data = result.items[j].plan_data;
+           		                    var flag = result.items[j].flag;                       
+           		                    html += '<tr>';
+           		                    html += '<td>'+plan_number+'期</td>';
+           		                 	html += '<td>'+play_name+'</td>';           		                 
+           		                 	html += '<td>'+plan_data+'</td>';
+           		                 	html += '<td>';
+           		                    if(flag==1){
+           		                    	html += '<font color="#9cd355">中</font>';
+           		                    }else if(flag==2){
+           		                    	html += '<font color="#a2714d">挂</font>';
+           		                    }else{
+           		                    	html += '进行中';
+           		                    }
+           		                 	html += '</td>';
+           		                    html += '</tr>';
+           		            	}  
+           		        		$('#plan-list').append(html);           		        				        		
+           		            }
+           		        	$('.tips').html('');
+           		        },
+           		        error:function(e){
+           		        	console.log(e);
+           		        }
+                    });
+                }catch (e){
+                	
+                }                    
+            }else{
+                flag = false;
+            }
+        })
+    }else{
+    	$('.tips').html('');
+        flag = true;
+        return;
+    }
+}
+
+//图片上传结束
+$(function () {	
+	getPlanData();	
+});
+</script>
+<script src="/public/mobile/js/require.js" data-main="/public/mobile/js/system"></script>
+<script src="/public/mobile/js/require.config.js"></script>	
+</body>
+</html>

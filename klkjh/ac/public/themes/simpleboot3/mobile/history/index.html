@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>开奖历史-{$site_info.site_name|default=''}</title>
+<meta name="keywords" content="开奖历史,{$site_info.site_seo_keywords|default=''}"/>
+<meta name="description" content="{$site_info.site_seo_description|default=''}">
+<include file="mobile/public/@head"/>
+</head>
+<body>
+<div id="page-index" class="wrap">
+	<header class="header">
+		<a class="btn-back" href="/"></a>
+		<h1 class="title">开奖历史</h1>
+	</header>
+	<div class="body">
+		<div class="content history">			
+			<div class="cp-list">
+				<foreach name="types" item="vo">
+				<div class="row {$vo.name}" id="lot{$vo.id}" data-id="{$vo.id}" data-last-number="{$vo.last_number}" data-time="{$vo.diff_time}" data-opentime="{$vo.open_time}" data-opendata="{$vo.last_data}" data-lasttimer="1501148138501" data-ajax="false">
+					<div class="cp-header">	
+						<div class="title">{$vo.title}</div>					
+				  		<div class="number">第{$vo.last_number}期</div>			  			
+				  		<div class="cp-time">剩<span class="time-txt"></span>开</div>
+				  	</div>
+				  	<div class="cp-body">
+					  	<div class="col col-9 col-md-9 cp-left">			  					  					  		
+					  		<div class="cp-number">			  			
+					  			<if condition="!empty($vo['last_data_arr'])">
+					  				<foreach name="$vo.last_data_arr" item="vo2"><if condition="$vo2=='+'">{$vo2}<else /><span class="n{$vo2}">{$vo2}</span></if></foreach>	
+					  				<if condition="$vo.id==7">
+						  			<div class="clearfix"></div>
+						  			<foreach name="$vo.last_data_arr" item="vo2"><if condition="$vo2=='+'">{$vo2}<else /><span><if condition="isset($lhc_config[$vo2])">{$lhc_config[$vo2]}</if></span></if></foreach>
+						  			</if>
+					  			<else /><p class="opening">正在开奖...</p>
+					  			</if>	
+					  		</div>			  		
+						</div>
+						<div class="col col-3 col-md-3 cp-right">
+							<a href="{:cmf_url('mobile/history/view',array('type'=>$vo.id))}" class="cp-history">开奖历史</a>
+							<if condition="$vo.id!=7"><a href="{:cmf_url('mobile/index/zst',array('type'=>$vo.id))}" class="cp-history">开奖走势</a></if>
+						</div>
+					</div>
+				</div>
+				<div class="hr"></div>
+				</foreach>			
+			</div>
+		</div>		
+	</div>
+	<include file="mobile/public/@footer"/>	
+	<!-- end.footer -->
+</div>
+<script type="text/javascript">	
+var isLoadTimer=true;
+</script>
+<script src="/public/mobile/js/require.js" data-main="/public/mobile/js/system"></script>
+<script src="/public/mobile/js/require.config.js"></script>	
+</body>
+</html>

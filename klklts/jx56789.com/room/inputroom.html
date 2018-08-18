@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>输入房间号码</title>
+<style type="text/css">
+body {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-color: #025470;
+    background-size: auto contain;
+    background-image: url(./images/19.jpg);
+}
+.input-group {
+    margin-top: 150px;
+}
+</style>
+<link href="./skins/qqxiaoyou/bootstrap.min.css" rel="stylesheet" type="text/css"  />
+</head>
+<body>
+	
+
+	<div class="container goin-room">
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3 ">
+				<h1><img src="" style="max-width: 240px; min-width: 120px;"></h1>
+				
+				<form id="goin-form" class="form-signin form-horizontal">
+					<div class="form-group">
+						<div class="col-xs-12">
+							<label for="name" class="sr-only">房间名</label> 
+							<div class="input-group input-group-lg">
+								<input type="text" class="form-control" id="roomName" name="roomName" value="" placeholder="请输入房间号码">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="submit">进入房间</button>
+								</span>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./script/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#goin-form').submit(function(){
+				var roomName = $('#roomName').val();
+				window.location.href = '/' + roomName;
+				return false;
+			});
+		});
+	</script>
+
+
+</body></html>

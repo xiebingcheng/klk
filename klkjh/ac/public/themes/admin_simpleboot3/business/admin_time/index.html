@@ -1,0 +1,53 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<foreach name="typeList" item="vo">
+			<li <if condition="$vo['id'] eq $type">class="active"</if>><a href="{:url('business/adminTime/index',array('type'=>$vo['id']))}">{$vo.title}</a></li>	
+			</foreach>
+		</ul>   
+		<form method="post" class="js-ajax-form margin-top-20" action="<if condition="$type==7">{:url('business/adminTime/actionLhcTime')}<else />{:url('business/adminTime/actionTime')}</if>">
+	    	<div class="table-actions">
+	            <button class="btn btn-primary btn-sm js-ajax-submit" type="submit">{:lang('EDIT')}</button>
+	            <if condition="$type==7">
+	            <button class="btn btn-danger btn-sm js-ajax-submit" type="submit"
+                    data-action="{:url('AdminTime/delete')}" data-subcheck="true" data-msg="您确定删除吗？">
+                {:lang('DELETE')}
+            	</button>
+            	<a class="btn btn-default btn-sm" href="{:url('business/adminTime/add',array('type'=>$type))}">添加</a>
+            	</if>
+	        </div>     
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th width="5"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+						<th width="10%">{:lang('TIME_ACTION_NUMBER')}</th>
+						<th>{:lang('TIME_ACTION_TIME')}</th>					
+					</tr>
+				</thead>
+				<tbody>
+					<foreach name="list" item="vo">
+					<tr>
+						<td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+						<td width="10%">{$vo.action_number}</td>	
+						<td><input name='action_times[{$vo.id}]' class="form-control <if condition="$type==7">js-datetime</if>" type='text' value='{$vo.action_time}' style="width:80%; float:left"><if condition="$vo.action_time <= $now"><a class="btn btn-primary" href="{:url('business/adminData/add',array('type'=>$typeInfo['name'],'time'=>$vo['action_time']))}" style="float:left; margin-left:10px">开奖</a></if></td>					
+					</tr>
+					</foreach>
+				</tbody>
+			</table>
+			<div class="table-actions">
+	            <button class="btn btn-primary btn-sm js-ajax-submit" type="submit">{:lang('EDIT')}</button>
+	        	<if condition="$type==7">
+	            <button class="btn btn-danger btn-sm js-ajax-submit" type="submit"
+                    data-action="{:url('AdminTime/delete')}" data-subcheck="true" data-msg="您确定删除吗？">
+                {:lang('DELETE')}
+            	</button>
+            	</if>
+	        </div>
+			<div class="pagination">{$page}</div>
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

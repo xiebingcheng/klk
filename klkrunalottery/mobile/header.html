@@ -1,0 +1,33 @@
+<!-- 公共头部 -->
+<header id="indexHeader">
+	<div class="top_menu_bar">
+		<div class="top_menu_left">
+			<a href="./index.html"><img src="./images/logo_phone.png" alt="" /></a>
+		</div>
+		<div class="top_menu_middle" id="caizhong_name">
+			<span id="titlespan"></span>
+		</div>
+		<div class="top_menu_more">
+			<span class="more_btn">
+			<span id="showtime"></span>
+			<input type="hidden" id="yearmothnday" />
+			<input type="text" id="beginTime" class="" />
+			<input type="hidden" id="date" />
+			</span>
+		</div>
+	</div>
+</header>
+<script>
+	$(function() {
+		$("#cZList").on("click","li",function(){
+			tools.openAllCz(false); 
+		});
+		$("#indexHeader").on("touchstart", "#caizhong_name", function() {
+			tools.openAllCz(true); 
+		});
+		
+		$("#cZList .backbtn").on("touchstart", "span", function() {
+			tools.openAllCz(false); 
+		});
+	});
+</script>

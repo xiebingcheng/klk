@@ -1,0 +1,4 @@
+@charset "utf-8";
+/* IE8及以下版浏览器 CSS Document */
+.bg_png1,.bg_png{background-image: url(../../images/png.png);}
+.bg_png3,.title_bar{border-bottom:#C3C3D6 1px solid;}

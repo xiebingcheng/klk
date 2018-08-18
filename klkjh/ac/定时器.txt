@@ -1,0 +1,5 @@
+* * * * * sleep 10;/usr/bin/curl "http://www.51ssckj.com/public/index.php/api/fc3d.html"
+* * * * * sleep 10;/usr/bin/curl "http://www.51ssckj.com/public/index.php/api/pk10bj.html"
+* * * * * sleep 10;/usr/bin/curl "http://www.51ssckj.com/public/index.php/api/pl3.html"
+* * * * * sleep 10;/usr/bin/curl "http://www.51ssckj.com/public/index.php/api/ssccq.html"
+* * * * * sleep 10;/usr/bin/curl "http://www.51ssckj.com/public/index.php/api/syxwgd.html"

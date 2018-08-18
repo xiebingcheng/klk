@@ -1,0 +1,85 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('AdminType/index')}">彩种管理</a></li>
+        <li class="active"><a>编辑彩种</a></li>
+    </ul>
+    <form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('AdminType/editPost')}">
+        <div class="form-group">
+            <label for="input-title" class="col-sm-2 control-label">名称</label>
+            <div class="col-md-6 col-sm-10">
+                {$title}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">表名</label>
+            <div class="col-md-6 col-sm-10">
+                {$name}
+            </div>
+        </div>
+        <div class="form-group">
+			<label for="input-picture" class="col-sm-2 control-label">图标</label>
+			<div class="col-md-6 col-sm-10">
+				<input type="hidden" name="icon" id="icon" value="" value="{$icon}">
+                <a href="javascript:uploadOneImage('图标上传','#icon');">
+                <if condition="empty($icon)">
+                	<img src="__TMPL__/public/assets/images/default-thumbnail.png"
+                        	id="icon-preview" width="135" style="cursor: pointer"/>
+                <else/>
+                    <img src="{:cmf_get_image_preview_url($icon)}"
+                            id="icon-preview" width="135" style="cursor: pointer"/>
+                </if>
+                </a>
+                <input type="button" class="btn btn-sm btn-cancel-icon" value="取消图标">
+			</div>
+		</div>
+        <div class="form-group">
+            <label for="input-info" class="col-sm-2 control-label">介绍</label>
+            <div class="col-md-6 col-sm-10">
+                <textarea type="text" class="form-control" name="info">{$info}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-data-ftime" class="col-sm-2 control-label">提前开奖(s)</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="data_ftime" value="{$data_ftime}">               
+            </div>
+        </div> 
+        <div class="form-group">
+            <label for="input-list-order" class="col-sm-2 control-label">排序</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="list_order" value="{$list_order}">               
+            </div>
+        </div>  
+        <div class="form-group">
+            <label for="input-status" class="col-sm-2 control-label">状态</label>
+            <div class="col-md-6 col-sm-10">
+                <select name="status" id="input-status" class="form-control">
+                    <option value="1">正常</option>
+                    <option value="0">暂停</option>                    
+                </select>               
+            </div>
+        </div>        
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="hidden" name="id" value="{$id}">
+                <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('SAVE')}</button>
+                <a class="btn btn-default" href="{:url('AdminType/index')}">{:lang('BACK')}</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+<script>
+    $('#input-enable').val("{$status}");
+    $(function () {
+        $('.btn-cancel-icon').click(function () {
+            $('#icon-preview').attr('src', '__TMPL__/public/assets/images/default-thumbnail.png');
+            $('#icon').val('');
+        });
+    });
+</script>
+</body>
+</html>

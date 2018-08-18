@@ -1,0 +1,47 @@
+/* CSS Document */
+
+.c { margin:0 auto; width:1000px; }
+
+.head_bg {
+	position: relative;
+	padding-top:90px;
+	width: 100%;
+	height: 370px;
+	overflow: hidden;
+	background: #020a1f url(./bg_down.jpg) no-repeat center center;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+}
+.head { display:block; }
+
+.center { margin:50px auto; }
+
+.top { margin-bottom:20px; }
+
+.box_list { padding:40px 25px; width:950px; display:block; overflow:hidden; position:relative; }
+.box { width:250px; float:left;  position:relative; }
+.box dl { width:100%; height:51px; padding-left:60px; background:url(./ic_down_1.png) no-repeat 0 0; }
+.box dl.android { background:url(./ic_down_2.png) no-repeat 0 0; }
+.box dl.iphone { background:url(./ic_down_3.png) no-repeat 0 0; }
+.box dt { font-size:18px; font-weight:bold; color:#626262; }
+.box dd { font-size:16px; color:#a9a9a9; line-height:30px; }
+.box dd span { color:#e00000; }
+.box .txt { padding:16px 0px; font-size:14px; color:#898888; text-align:center; }
+.box .txt2 { padding:0px 0px; font-size:14px; color:#898888; text-align:center; }
+.box .btn { margin:10px auto; width:141px; height:42px; background:url(./down_btn.png) no-repeat center center; cursor:pointer; }
+.box .btn:hover {  background:url(./down_btn_o.png) no-repeat center center; }
+.box .btn a {  width:141px; height:42px; display:block; }
+
+.box_line { background:url(./box_line.png) 0 center no-repeat; height:40px; }
+
+.foot_box {
+	position: relative;
+	width: 100%;
+	height: 146px;
+	background: #041c2e;
+	background: -webkit-gradient(linear,0 0,0 bottom,from(#09253b),to(#001423));
+	background: -moz-linear-gradient(top,#09253b,#001423);
+	background: -o-linear-gradient(top,#09253b,#001423);
+}
+.foot { line-height:146px; color:#fff; font-size:14px; position:relative; text-align:center; }
+.foot .erw { width:188px; height:122px; position:absolute; right:30px; bottom:10px; }

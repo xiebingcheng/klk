@@ -1,0 +1,29 @@
+<div class="cp-list">			
+				<div class="row {$type.name}" id="lot{$type.id}" data-id="{$type.id}" data-last-number="{$type.last_number}" data-time="{$type.diff_time}" data-opentime="{$type.open_time}" data-opendata="{$type.last_data}" data-lasttimer="1501148138501" data-ajax="false">
+					<div class="col col-3 col-md-3">					
+				  		<div class="number">第{$type.last_number}期</div>			  			
+				  		<div class="cp-time">剩<span class="time-txt"></span>开</div>
+				  	</div>
+				  	<div class="col col-6 col-md-6">			  					  					  		
+				  		<div class="cp-number">			  			
+				  			<if condition="!empty($type['last_data_arr'])">
+				  				<foreach name="$type.last_data_arr" item="vo2"><if condition="$vo2=='+'">{$vo2}<else /><span class="n{$vo2}">{$vo2}</span></if></foreach>	
+				  				<if condition="$type.id==7">
+					  			<div class="clearfix"></div>
+					  			<foreach name="$type.last_data_arr" item="vo2"><if condition="$vo2=='+'">{$vo2}<else /><span><if condition="isset($lhc_config[$vo2])">{$lhc_config[$vo2]}</if></span></if></foreach>
+					  			</if>
+				  			<else /><p class="opening">正在开奖...</p>
+				  			</if>	
+				  		</div>			  		
+					</div>
+					<div class="col col-3 col-md-3">
+						<if condition="$action!='view'">
+						<a href="{:cmf_url('mobile/history/view',array('type'=>$type.id))}" class="cp-history">开奖历史</a>
+						</if>
+						<if condition="$action!='zst' && $type.id!=7">
+						<a href="{:cmf_url('mobile/index/zst',array('type'=>$type.id))}" class="cp-history">开奖走势</a>
+						</if>
+					</div>
+					<div class="clearfix"></div>				
+				</div>
+			</div>

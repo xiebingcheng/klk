@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>开奖历史-{$type.title}-{$site_info.site_name|default=''}</title>
+<meta name="keywords" content="{$type.title}开奖历史,{$site_info.site_seo_keywords|default=''}"/>
+<meta name="description" content="{$site_info.site_seo_description|default=''}">
+<include file="mobile/public/@head"/>
+</head>
+<body>
+<div id="page-index" class="wrap">
+	<header class="header">
+		<a class="btn-back" href="{:cmf_url('/mobile/history')}"></a>
+		<h1 class="title">{$type.title}</h1>
+	</header>
+	<div class="body">
+		<div class="content detail {$type.name}">
+			<include file="mobile/public/@top"/>
+			<div class="kj-list" id="art-list" data-page="2">
+				<if condition="in_array($type.id, array(1,2,3))">
+				<div class="search">日期：<input type="text" name="date" value="{$date}" id="date" placeholder="开始时间" class="date" /></div>			
+				</if>
+				<if condition="!empty($historys)">			
+				<foreach name="historys" item="vo">
+				<div class="list-item">				
+					<div class="cp-time">第{$vo.number}期：</div>
+					<div class="cp-number">
+						<if condition="!empty($vo['data_arr'])">
+				  			<foreach name="vo.data_arr" item="vo2">
+				  			<if condition="$vo2=='+'">{$vo2}<else /><span class="n{$vo2}">{$vo2}</span></if>		  			
+				  			</foreach>	
+				  			<if condition="$type.id==7">			  			
+					  		<br />
+					  		<foreach name="vo.data_arr" item="vo2"><if condition="$vo2=='+'">{$vo2}<else /><span><if condition="isset($lhc_config[$vo2])">{$lhc_config[$vo2]}</if></span></if></foreach>
+					  		</if>
+				  		<else />
+				  			<p class="opening">正在开奖...</p>
+				  		</if>			  		
+				  	</div>
+				  	<div class="clearfix"></div>
+				</div>
+				</foreach>			
+				<else />	
+			    <div class="none">
+			    	<img src="/public/mobile/images/empty.png" />
+					<p class="msg">暂无内容</p>	
+			    </div>	
+			    </if>
+			</div>
+			<div class="tips"></div>
+		</div>	
+	</div>
+	<include file="mobile/public/@footer"/>	
+	<!-- end.footer -->
+</div>
+<script src="/public/mobile/js/function.js"></script>	
+<script src="/public/mobile/js/mobiscroll/mobiscroll.custom-2.16.1.min.js"></script>
+<link href="/public/mobile/js/mobiscroll/mobiscroll.custom-2.16.1.min.css" rel="stylesheet" />
+<script type="text/javascript">	
+var isLoadTimer=true;
+var isLoadDataList=true;
+var id={$type.id|default=0};
+var total = {$total|default=0};
+var pageSize = {$psize|default=10};
+var date = '{$date}';
+
+var today = new Date();
+var currYear = today.getFullYear();
+var currMonth = today.getMonth();
+var currDay = today.getDate();
+$(function() {
+	$('#date').mobiscroll().calendar({
+	     theme: 'android-holo-light',
+	     mode: 'scroller', 
+	     display: 'bottom',
+	     lang: 'zh',
+	     dateFormat: 'yy-mm-dd',
+	     maxDate: new Date(currYear,currMonth,currDay),
+	     controls: ['date'] 
+	});
+	
+	$("#date").change(function(){
+		window.location.href='/public/index.php/mobile/history/view/type/{$type.id}/date/'+$(this).val()+'.html';
+	});
+});
+</script>
+<script src="/public/mobile/js/require.js" data-main="/public/mobile/js/system"></script>
+<script src="/public/mobile/js/require.config.js"></script>	
+</body>
+</html>

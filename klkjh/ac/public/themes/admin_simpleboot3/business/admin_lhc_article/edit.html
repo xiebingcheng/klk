@@ -1,0 +1,88 @@
+<include file="public@header"/>
+<style type="text/css">
+    .pic-list li {
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('AdminLhcArticle/index')}">文章管理</a></li>
+        <li>
+            <a href="{:url('AdminLhcArticle/add')}">添加文章</a>
+        </li>
+        <li class="active"><a href="#">编辑文章</a></li>
+    </ul>
+    <form action="{:url('AdminLhcArticle/editPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="100">分类<span class="form-required">*</span></th>
+                        <td>
+                            <select class="form-control" name="category_id" required style="width:140px;">
+					            {$category_tree|default=''}
+					        </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>期数<span class="form-required">*</span></th>
+                        <td>
+                            <input class="form-control" type="text" name="post_number"
+                                   id="number" required value="{$number}" placeholder="请输入期数"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>标题<span class="form-required">*</span></th>
+                        <td>
+                            <input type="hidden" name="id" value="{$id}">
+                            <input class="form-control" type="text" name="post_title"
+                                   required value="{$post_title}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>关键词</th>
+                        <td>
+                            <input class="form-control" type="text" name="post_keywords"
+                                   value="{$post_keywords}" placeholder="请输入关键字">
+                            <p class="help-block">多关键词之间用英文逗号隔开</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>内容</th>
+                        <td>
+                            <script type="text/plain" id="content" name="post_content">{$post_content}</script>
+                        </td>
+                    </tr>
+                </table>
+            </div>            
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('SAVE')}</button>
+                <a class="btn btn-default" href="javascript:history.back(-1);">{:lang('BACK')}</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+<script type="text/javascript">
+    //编辑器路径定义
+    var editorURL = GV.WEB_ROOT;
+</script>
+<script type="text/javascript" src="__STATIC__/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__STATIC__/js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript">
+$(function () {
+
+    editorcontent = new baidu.editor.ui.Editor();
+    editorcontent.render('content');
+    try {
+        editorcontent.sync();
+    } catch (err) {
+    }
+});
+</script>
+</body>
+</html>

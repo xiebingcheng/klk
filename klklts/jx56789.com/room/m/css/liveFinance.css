@@ -1,0 +1,606 @@
+@charset "UTF-8";
+html {
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-size: 100%;
+	color: #000;
+	background-color: #FFF
+}
+
+body {
+	margin: 0;
+	word-wrap: break-word
+}
+
+:active {
+	outline: 0
+}
+
+:visited {
+	outline: 0
+}
+
+:link,:visited,ins {
+	text-decoration: none
+}
+
+
+
+body {
+	color: #666;
+	font: 12px/1.5 tahoma,arial,sans-serif
+}
+
+* html {
+	overflow-x: hidden;
+	overflow-y: auto
+}
+
+* html,* html body {
+	background-image: url(about:blank);
+	background-attachment: fixed
+}
+
+
+
+
+
+
+.fg-qrcode-dl {
+	position: absolute;
+	width: 80px;
+	height: 100px;
+	background-color: #fff;
+	left: 9px;
+	bottom: 50px
+}
+
+.fg-qrcode-dl img {
+	width: 80px;
+	height: 80px;
+	border-width: 0
+}
+
+.fg-qrcode-dl .fg-qrcode-text {
+	text-align: center;
+	height: 20px;
+	line-height: 20px
+}
+
+.fg-qrcode-dl .fg-qrcode-close {
+	width: 16px;
+	height: 16px;
+	background: url(images/fin_qrcode_close.png) no-repeat;
+	position: absolute;
+	right: -8px;
+	top: -8px;
+	cursor: pointer
+}
+
+.fg-video-wrap .fg-video-box {
+	width: 600px;
+	height: 450px;
+	margin: 0 auto;
+	padding: 9px;
+	background-color: #fff;
+	border: 1px solid #cbdbf4;
+	border-radius: 5px;
+	background: url(images/fin_bold_mask_bg.png) repeat;
+	position: relative
+}
+
+.fg-video-wrap .fg-video-box-mask {
+	width: 100%;
+	height: 100%
+}
+
+.fg-admin-box {
+	height: 90px;
+	background: url(images/gold_info_mask_bg.png) repeat;
+	color: #f6f6f6;
+	font-size: 15px
+}
+
+.fg-admin-box .fg-admin-wrap {
+	padding-top: 0
+}
+
+.fg-admin-box .fg-admin-label {
+	float: left;
+	width: 105px;
+	font-weight: 700;
+	text-align: right
+}
+
+.fg-admin-box .fg-admin-list-wrap {
+	float: left;
+	position: relative;
+	height: 90px;
+	width: 300px
+}
+
+.fg-admin-box .fg-admin-list {
+	width: 290px
+}
+
+.fg-admin-box .fg-admin-list li {
+	height: 30px;
+	line-height: 30px;
+	word-wrap: normal;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis
+}
+
+.fg-admin-box .fg-admin-list li i {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	background: url(./images/gif.gif) no-repeat 0 100px;
+	vertical-align: middle
+}
+
+.fg-admin-box .fg-admin-list li .role-255-1 {
+	background-position: 0 -155px
+}
+
+.fg-admin-box .fg-admin-list li .role-230-1 {
+	background-position: 0 -185px
+}
+
+.fg-admin-box .fg-admin-list li .role-200-1 {
+	background-position: 0 -215px
+}
+
+.fg-admin-box .fg-admin-list li .role-150-1 {
+	background-position: -60px -155px
+}
+
+.fg-admin-box .fg-admin-list li .role-255-0 {
+	background-position: -30px -155px
+}
+
+.fg-admin-box .fg-admin-list li .role-230-0 {
+	background-position: -30px -185px
+}
+
+.fg-admin-box .fg-admin-list li .role-200-0 {
+	background-position: -30px -215px
+}
+
+.fg-admin-box .fg-admin-list li .role-150-0 {
+	background-position: -90px -155px
+}
+
+.fin-gold-footer {
+	display: none
+}
+
+.fg-chat-box .fg-chat-box-wrap {
+	padding: 9px
+}
+
+.fg-chat-box .fg-tab-box {
+	border-bottom: 4px solid #4d7abc
+}
+
+.fg-chat-box .fg-tab-box .fg-tab-ul {
+	height: 48px;
+	line-height: 48px
+}
+
+.fg-chat-box .fg-tab-box .fg-tab-ul li {
+	width: 134px;
+	float: left;
+	text-align: center;
+	line-height: 48px;
+	font-family: "Microsoft YaHei","微软雅黑";
+	font-size: 16px;
+	cursor: pointer
+}
+
+.fg-chat-box .fg-tab-box .fg-tab-ul li.current {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	background-color: #4d7abc;
+	color: #fff;
+	cursor: default
+}
+
+.fg-tab-content-container {
+	display: none
+}
+
+.fg-box-ct-chatpub {
+	display: block
+}
+
+.fg-box-ct-notice {
+	height: 100%
+}
+
+.fg-box-ct-notice .fg-notice {
+	background-color: #fff;
+	height: 100%;
+	overflow-y: auto
+}
+
+.fg-box-ct-notice .fg-notice-text {
+	padding: 5px;
+	color: #666;
+	font-family: "宋体",sans-serif
+}
+
+.fg-box-ct-notice .fg-notice-empty {
+	line-height: 31px;
+	padding: 40px 0 0 40px
+}
+
+.fg-box-ct-notice .fg-notice-empty span {
+	margin-left: 3px;
+	font-size: 14px;
+	font-weight: 700;
+	font-family: "宋体",sans-serif
+}
+
+.fg-box-ct-notice .fg-notice-empty .fin-ico-warn {
+	float: left
+}
+
+.fg-box-ct-news {
+	height: 100%
+}
+
+.fg-box-ct-news .fg-news-box {
+	position: relative;
+	height: 100%
+}
+
+.fg-box-ct-news .fg-news-box iframe {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	margin: 0
+}
+
+.fg-box-ct-news #exemption {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 402px;
+	height: 32px
+}
+
+.fg-box-ct-news #exemption #bg {
+	background: #000;
+	opacity: .8;
+	height: 32px;
+	filter: alpha(opacity=80)
+}
+
+.fg-box-ct-news #exemption p {
+	position: absolute;
+	width: 402px;
+	height: 32px;
+	top: 0;
+	left: 0;
+	line-height: 32px;
+	font-size: 12px;
+	color: #fff;
+	text-align: center
+}
+
+
+
+.fg-notice-wrap {
+	height: 100%;
+	width: 100%;
+	overflow-y: auto;
+	outline: 0;
+	position: relative;
+        background: #f6f6f6;
+}
+
+.fg-notice-wrap .jspDrag {
+	display: block
+}
+
+.fg-notice-wrap .fg-notice-box {
+	padding: 5px
+}
+
+.fg-notice-wrap .fg-day-title {
+	text-align: center;
+	margin: 15px 5px
+}
+
+.fg-notice-wrap .fg-day-title .fg-day-vline {
+	font-size: 0;
+	height: 1px;
+	margin-top: 8px;
+	margin-bottom: 9px;
+	background-color: #e5e5e5;
+	position: relative
+}
+
+.fg-notice-wrap .fg-day-title .fg-day-text {
+	width: 100%;
+	left: 0;
+	top: -9px;
+	position: absolute
+}
+
+.fg-notice-wrap .fg-day-title .fg-day-text span {
+	font-size: 12px;
+	background-color: #fff;
+	padding: 0 4px
+}
+
+.fg-notice-wrap .fg-item {
+	font-family: "Microsoft YaHei","微软雅黑";
+	margin: 5px;
+	position: relative
+}
+
+.fg-notice-wrap .fg-item .fg-item-time {
+	float: left;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 65px
+}
+
+.fg-notice-wrap .fg-item .fg-item-time .fg-time-label {
+	width: 46px;
+	height: 18px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 18px;
+	font-family: "Microsoft YaHei","微软雅黑";
+	color: #fff;
+	margin: 0 auto;
+	background-position: -301px -214px
+}
+
+.fg-notice-wrap .fg-item .fg-item-time .fg-time-label-lastest {
+	background-position: -301px -191px
+}
+
+.fg-notice-wrap .fg-item .fg-item-box {
+	padding-left: 65px
+}
+
+.fg-notice-wrap .fg-item .fg-item-title {
+	font-size: 0;
+	height: 1px;
+	margin-top: 8px;
+	margin-bottom: 9px;
+	background-color: #e5e5e5;
+	position: relative
+}
+
+.fg-notice-wrap .fg-item .fg-title-arrow {
+	width: 68px;
+	height: 18px;
+	position: absolute;
+	left: 0;
+	top: -8px;
+	font-size: 12px;
+	font-family: "Microsoft YaHei","微软雅黑";
+	background-position: 68px 18px;
+	padding-right: 10px;
+	background-color: #fff;
+	color: #fff;
+	text-align: center
+}
+
+.fg-notice-wrap .fg-item .fg-title-arrow-1 {
+	background-position: -160px -217px
+}
+
+.fg-notice-wrap .fg-item .fg-title-arrow-2 {
+	background-position: -160px -239px
+}
+
+.fg-notice-wrap .fg-item .fg-title-arrow-3 {
+	background-position: -160px -261px
+}
+
+.fg-notice-wrap .fg-item .fg-impt-ico {
+	width: 15px;
+	height: 15px;
+	background-position: -299px -75px;
+	margin-top: 2px;
+	margin-right: 2px;
+	display: inline-block;
+	float: left;
+	*zoom: 1;
+	*display: inline
+}
+
+.fg-notice-wrap .fg-item .fg-item-value .fg-value-label {
+	color: #bcbcbc
+}
+
+.fg-notice-wrap .fg-item .fg-item-value .fg-value-text {
+	color: #535353
+}
+
+.fg-notice-wrap .fg-item .fg-item-value .fg-value-text-1 {
+	color: #f24e4d
+}
+
+.fg-notice-wrap .fg-item .fg-item-value .fg-value-text-2 {
+	color: #65c56e
+}
+
+.fg-notice-wrap .fg-item .fg-item-value .fg-value-text-3 {
+	color: #429bd5
+}
+
+.page-fin-news {
+	height: 100%;
+	overflow: auto
+}
+
+.page-fin-news body {
+	height: 100%
+}
+
+
+.fg-notice-wrap {
+	height: 100%;
+	width: 100%;
+	overflow-y: auto;
+	outline: 0;
+	position: relative
+}
+
+.fg-notice-wrap .jspDrag {
+	display: block
+}
+
+.fg-notice-wrap .fg-notice-box {
+	padding: 5px
+}
+
+.fg-notice-wrap .fg-day-title {
+	text-align: center;
+	margin: 15px 5px
+}
+
+.fg-notice-wrap .fg-day-title .fg-day-vline {
+	font-size: 0;
+	height: 1px;
+	margin-top: 8px;
+	margin-bottom: 9px;
+	background-color: #e5e5e5;
+	position: relative
+}
+
+.fg-notice-wrap .fg-day-title .fg-day-text {
+	width: 100%;
+	left: 0;
+	top: -9px;
+	position: absolute
+}
+
+.fg-notice-wrap .fg-day-title .fg-day-text span {
+	font-size: 12px;
+	background-color: #fff;
+	padding: 0 4px
+}
+
+.fg-notice-wrap .fg-item {
+	font-family: "Microsoft YaHei","微软雅黑";
+	margin: 5px;
+	position: relative
+}
+
+.fg-notice-wrap .fg-item .fg-item-time {
+	float: left;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 65px
+}
+
+.fg-notice-wrap .fg-item .fg-item-time .fg-time-label {
+	width: 46px;
+	height: 18px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 18px;
+	font-family: "Microsoft YaHei","微软雅黑";
+	color: #fff;
+	margin: 0 auto;
+	background-position: -301px -214px
+}
+
+.fg-notice-wrap .fg-item .fg-item-time .fg-time-label-lastest {
+	background-position: -301px -191px
+}
+
+.fg-notice-wrap .fg-item .fg-item-box {
+	padding-left: 65px
+}
+
+.fg-notice-wrap .fg-item .fg-item-title {
+	font-size: 0;
+	height: 1px;
+	margin-top: 8px;
+	margin-bottom: 9px;
+	background-color: #e5e5e5;
+	position: relative
+}
+
+.fg-notice-wrap .fg-item .fg-title-arrow {
+	width: 68px;
+	height: 18px;
+	position: absolute;
+	left: 0;
+	top: -8px;
+	font-size: 12px;
+	font-family: "Microsoft YaHei","微软雅黑";
+	background-position: 68px 18px;
+	padding-right: 10px;
+	background-color: #fff;
+	color: #fff;
+	text-align: center
+}
+
+.fg-notice-wrap .fg-item .fg-title-arrow-1 {
+	background-position: -160px -217px
+}
+
+.fg-notice-wrap .fg-item .fg-title-arrow-2 {
+	background-position: -160px -239px
+}
+
+.fg-notice-wrap .fg-item .fg-title-arrow-3 {
+	background-position: -160px -261px
+}
+
+.fg-notice-wrap .fg-item .fg-impt-ico {
+	width: 15px;
+	height: 15px;
+	background-position: -299px -75px;
+	margin-top: 2px;
+	margin-right: 2px;
+	display: inline-block;
+	float: left;
+	*zoom: 1;
+	*display: inline
+}
+
+.fg-notice-wrap .fg-item .fg-item-value .fg-value-label {
+	color: #bcbcbc
+}
+
+.fg-notice-wrap .fg-item .fg-item-value .fg-value-text {
+	color: #535353
+}
+
+.fg-notice-wrap .fg-item .fg-item-value .fg-value-text-1 {
+	color: #f24e4d
+}
+
+.fg-notice-wrap .fg-item .fg-item-value .fg-value-text-2 {
+	color: #65c56e
+}
+
+.fg-notice-wrap .fg-item .fg-item-value .fg-value-text-3 {
+	color: #429bd5
+}
+
+.page-fin-news {
+	height: 100%;
+	overflow: auto
+}
+
+.page-fin-news body {
+	height: 100%
+}
+

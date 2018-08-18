@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>{$site_info.site_name|default=''}</title>
+<meta name="keywords" content="{$site_info.site_seo_keywords|default=''}"/>
+<meta name="description" content="{$site_info.site_seo_description|default=''}">
+<include file="mobile/public/@head"/>
+</head>
+<body>
+<div id="page-index" class="wrap">
+	<header class="header">
+		<h1 class="logo"><img src="/public/mobile/images/logo.png" /></h1>
+		<div class="nav">
+			<a href="{$site_info.login_url|default=''}">登录</a>
+			<a href="{$site_info.register_url|default=''}">注册</a>
+		</div>
+	</header>
+	<div class="body">
+		<!-- end.header -->
+		<div class="focus focus-ex swiper-container js-focus">
+			<ul class="swiper-wrapper">
+				<foreach name="slides" item="vo">			
+				<li class="swiper-slide">
+					<a href="{$vo.url}">
+						<img src="{:cmf_get_image_url($vo.image)}" alt="{$vo.title}">
+						<p class="txt">{$vo.description}</p>
+					</a>
+				</li>
+				</foreach>			
+			</ul>
+			<div class="swiper-nav"></div>
+		</div>
+		<!-- end.focus -->
+		<div class="content detail {$type.name}">		
+			<include file="mobile/public/@top"/>
+			<div class="cate_list">
+				<ul>
+					<foreach name="categorys" item="vo">
+					<li><a href="{:cmf_url('/mobile/index/article',array('category_id'=>$vo.id))}"><img src="{$vo.icon}" alt="{$vo.name}"><span>{$vo.name}</span></a></li>
+					</foreach>
+					<li><a href="{:cmf_url('/mobile/plan')}"><img src="/public/mobile/images/cpjzjh.png" alt="彩票精准计划"><span>彩票精准计划</span></a></li>
+					<li><a href="{:cmf_url('/mobile/history')}"><img src="/public/mobile/images/kjls.png" alt="开奖历史"><span>开奖历史</span></a></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<include file="mobile/public/@footer"/>	
+	<!-- end.footer -->
+</div>
+<script src="/public/mobile/js/swiper.min.js"></script>	
+<script type="text/javascript">	
+var isLoadTimer=true;
+$(function() {
+	$('.js-focus').each(function(){
+		var _this = $(this);
+		var num = _this.find('li').size();
+		new Swiper(_this,{
+			loop: true,
+			autoplay:5000,
+			slidesPerView :1,
+		   // visibilityFullFit : true,
+			pagination: _this.find('.swiper-nav'),
+			prevButton:_this.find('.btn-prev-arrow'),
+			nextButton:_this.find('.btn-next-arrow'),
+			onSlideChangeEnd: function(swiper){
+				var i = swiper.activeIndex;
+				_this.find('.swiper-num .cur').text(i+1);
+			}
+		});
+		_this.find('.swiper-num .total').text(num);
+	});
+});
+</script>
+<script src="/public/mobile/js/require.js" data-main="/public/mobile/js/system"></script>
+<script src="/public/mobile/js/require.config.js"></script>	
+</body>
+</html>

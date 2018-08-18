@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>精准计划-{$site_info.site_name|default=''}</title>
+<meta name="keywords" content="精准计划,{$site_info.site_seo_keywords|default=''}"/>
+<meta name="description" content="{$site_info.site_seo_description|default=''}">
+<include file="mobile/public/@head"/>
+</head>
+<body>
+<div id="page-index" class="wrap">
+	<header class="header">
+		<a class="btn-back" href="/"></a>
+		<h1 class="title">精准计划</h1>
+	</header>
+	<div class="body">		
+		<div class="content plan">
+			<div class="plan_list">				
+				<ul>
+					<foreach name="playedes" item="vo">
+					<li><a href="javascript:showPlan('{$vo.plan_ids}','{$vo.plan_names}')"><img src="{$vo.icon}" alt="{$vo.title}"><span>{$vo.title}</span></a></li>
+					</foreach>					
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<include file="mobile/public/@footer"/>	
+	<!-- end.footer -->
+</div>
+<script src="/public/mobile/js/function.js"></script>	
+<script src="/public/mobile/js/require.js" data-main="/public/mobile/js/system"></script>
+<script src="/public/mobile/js/require.config.js"></script>	
+</body>
+</html>

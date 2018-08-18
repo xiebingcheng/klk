@@ -1,0 +1,33 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:url('business/adminData/index')}">{:lang('ADMIN_DATA_INDEX')}</a></li>
+			<li class="active"><a href="{:url('business/adminData/add')}">{:lang('ADMIN_DATA_ADD')}</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('business/adminData/addPost')}">
+			<div class="form-group">
+				<label for="input-number" class="col-sm-2 control-label">期号<span class="form-required">*</span></label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" id="input-number" name="number" value="{$number}">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="input-data" class="col-sm-2 control-label">号码<span class="form-required">*</span></label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" id="input-data" name="data">
+				</div>
+			</div>			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input type="hidden" name="type" value="{$type}">
+					<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+					<a class="btn btn-default" href="javascript:history.back(-1);">{:lang('BACK')}</a>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

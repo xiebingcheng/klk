@@ -1,0 +1,38 @@
+/*!
+ 
+ @Name: layer拓展样式
+ @Date: 2012.12.13
+ @Author: 贤心
+ @blog: sentsin.com
+ 
+ */
+ .layer-ext-nuoyun{border-radius: 5px;}
+body .layer-ext-nuoyun .layui-layer-title {
+	background: #545454;
+	color: #fff;
+	font-size: 16px;
+	height: 46px;
+	line-height: 46px;
+}
+body .layer-ext-nuoyun .layui-layer-setwin {
+
+    right: 12px;
+    top: 12px;
+ 
+}
+body .layer-ext-nuoyun .layui-layer-ico {
+    background: url(../../images/close-btn.png) no-repeat;
+    -webkit-transition: -webkit-transform 0.5s ease-out;-moz-transition: -moz-transform 0.5s ease-out;-o-transition: -o-transform 0.5s ease-out;-ms-transition: -ms-transform 0.5s ease-out;
+        width: 22px;
+    height: 22px;
+    
+}
+body .layer-ext-nuoyun .layui-layer-ico:hover {
+    -webkit-transform: rotateZ(180deg);-moz-transform: rotateZ(180deg);-o-transform: rotateZ(180deg);-ms-transform: rotateZ(180deg);transform: rotateZ(180deg);}
+body .layer-ext-nuoyun  .layui-layer-setwin .layui-layer-close1:hover {
+	opacity:1
+}
+
+body .layer-ext-nuoyun .layui-layer-setwin .layui-layer-close2:hover {
+	background-position:inherit;
+}

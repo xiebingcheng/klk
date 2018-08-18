@@ -1,0 +1,13 @@
+/*上下切换*/
+.hide1 {display: none;}
+.show1 {display: block;}
+.clip{ z-index:2000;}
+.clip_box {text-align:center;positionfixed; top:0; left:0;width:100%;height:80%; z-index:2000; background:rgba(100,100,100,0.9)}
+#clipArea {margin:0 auto;height:80%;background:#f2f2f2;}
+#clipBtn{border:0px;margin-top: 5px;background-color: #d32727; color:#fff;padding:8px 20px;border-radius:5px;width:40%;z-index:2000;}
+#cancel{border:0px;margin-top: 5px;background-color: #d32727;color:#fff;padding:8px 20px;border-radius:5px;width:40%;margin-left:3%;z-index:2000;}
+#hit {position:fixed;top:19%;left:9.375%;background:gainsboro;}
+/*适应小屏*/
+@media screen and (max-height:80%) {
+	#clipBtn, #upload2, #cancel {margin-top:0px;padding: 5px 20px;}
+}

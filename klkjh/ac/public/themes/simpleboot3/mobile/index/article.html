@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>{$type.title}{$lhc_category.name}-{$site_info.site_name|default=''}</title>
+<meta name="keywords" content="{$type.title},{$lhc_category.name},{$site_info.site_seo_keywords|default=''}"/>
+<meta name="description" content="{$site_info.site_seo_description|default=''}">
+<include file="mobile/public/@head"/>
+</head>
+<body>
+<div id="page-index" class="wrap">
+	<header class="header">
+		<a class="btn-back" href="/"></a>
+		<h1 class="title">{$lhc_category.name}</h1>
+	</header>
+	<div class="body">
+		<div class="content detail {$type.name}">
+			<include file="mobile/public/@top"/>
+			<div class="lhc-art-list">
+				<if condition="!empty($lhc_articles)">
+				<foreach name="lhc_articles" item="vo">
+				<dl> 
+			        <dd class="col col-12 col-md-12 title"><span class="number">{$vo.post_number}期：</span><a href="{:cmf_url('mobile/index/articleview',array('post_id'=>$vo.id))}">{$vo.post_title}</a></dd> 
+			    </dl> 
+			    </foreach>
+			    <div class="clearfix"></div>
+			    <else />	
+			    <div class="none">
+			    	<img src="/public/mobile/images/empty.png" />
+					<p class="msg">暂无内容</p>	
+			    </div>	
+			    </if>	
+			</div>		
+		</div>	
+	</div>
+	<include file="mobile/public/@footer"/>	
+	<!-- end.footer -->
+</div>
+<script type="text/javascript">	
+var isLoadTimer=true;
+</script>
+<script src="/public/mobile/js/require.js" data-main="/public/mobile/js/system"></script>
+<script src="/public/mobile/js/require.config.js"></script>
+</body>
+</html>

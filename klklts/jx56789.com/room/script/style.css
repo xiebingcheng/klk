@@ -1,0 +1,12 @@
+/* CSS Document */
+
+.list_lh{ height:300px; overflow:hidden;}
+.list_lh li{padding: 5px 10px;}
+
+.list_lh li p{ height:24px; line-height:24px;display:inline-block;}
+.list_lh li p a{ float:left;font-family: SimSun; font-size: 15px; color:rgb(255, 0, 0);font-weight: 700; font-style: normal; text-decoration: none}
+.list_lh li p em{ width:80px; font:normal 12px/24px Arial; color:#FF3300; float:right; display:inline-block;}
+.list_lh li p span{ color:#404040; margin-left:20px;display: inline;}
+
+
+
